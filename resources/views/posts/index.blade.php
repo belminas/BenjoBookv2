@@ -18,8 +18,10 @@
   <div class="row pb-5">
     <div class="col-6 offset-3">
         <a href="/profile/{{$post->user->id}}">
-        <img src="/storage/{{$post->image}}" alt="" class="w-100 pb-3">
-        <span class ="fw-bold text-dark">{{$post->caption}}</span>
+        <img src="/storage/{{$post->image}}" alt="" class="w-100 pb-3 rounded-image">
+        <span class="text-dark fs-5">{{$post->user->username}} : </span>
+        <span class ="fw-bold text-dark fw-bold">{{$post->caption}}</span>
+        <hr >
         </a>
     </div>
 </div>

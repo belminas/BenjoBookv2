@@ -60,6 +60,11 @@ class PostsController extends Controller
         return view('search.index', compact('posts'));
 
     }
+
+    public function delete($post){
+        Post::find($post)->delete();
+        return redirect('/');
+    }
     
 }
 

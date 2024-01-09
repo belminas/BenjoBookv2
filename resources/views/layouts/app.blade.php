@@ -24,12 +24,6 @@
                    <div> <img src="/svg/benjobook.svg" style="height: 23px; border-right: 1px solid #333" class="pe-3"> </div>
                    <div class="ps-3">BenjoBook</div>
                 </a>
-                @guest
-                @if (Route::has('register') || Route::has('login'))
-                @endif
-                @else
-                <a class="ps-5" href="/profile/{{Auth::user()->id}}"><img src="{{Auth::user()->profile->profileImage()}}" class="w-100 rounded-circle" alt="" style="max-width:50pX;"></a>
-                @endguest
 
                 <div class="ps-5">
                 <form action="/search" method="get" class="d-flex">
@@ -82,6 +76,13 @@
                                     </form>
                                 </div>
                             </li>
+                        @endguest
+
+                        @guest
+                        @if (Route::has('register') || Route::has('login'))
+                        @endif
+                        @else
+                        <a class="ps-2" href="/profile/{{Auth::user()->id}}"><img src="{{Auth::user()->profile->profileImage()}}" class="w-100 rounded-circle" alt="" style="max-width:40pX;"></a>
                         @endguest
                     </ul>
                 </div>

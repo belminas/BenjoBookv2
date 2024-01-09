@@ -17,7 +17,7 @@
   <div class="row pb-5">
     <div class="col-6 offset-3">
         <a href="/profile/{{$post->user->id}}">
-        <img src="/storage/{{$post->image}}" alt="" class="w-100 pb-3">
+        <img src="/storage/{{$post->image}}" alt="" class="w-100 pb-3 rounded-image">
         <span class ="fw-bold text-dark">{{$post->caption}}</span>
         </a>
     </div>
