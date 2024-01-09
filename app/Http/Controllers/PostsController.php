@@ -51,6 +51,15 @@ class PostsController extends Controller
     {
         return view('posts.show',compact('post'));
     }
+
+    public function search(){
+
+        $search_text=$_GET['query'];
+        $posts=Post::where('caption','LIKE','%'.$search_text.'%')->get();
+
+        return view('search.index', compact('posts'));
+
+    }
     
 }
 

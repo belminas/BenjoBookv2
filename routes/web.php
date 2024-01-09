@@ -28,6 +28,8 @@ Route::get('/email',function () {
     return new NewUserWelcomeMail;
 });
 
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);
+
 Route::post('/follow/{user}', [App\Http\Controllers\FollowsController::class, 'store']);
 
 Route::get('/', [App\Http\Controllers\PostsController::class, 'index']);
@@ -35,6 +37,8 @@ Route::get('/', [App\Http\Controllers\PostsController::class, 'index']);
 Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create']);
 
 Route::post('/p', [App\Http\Controllers\PostsController::class, 'store']);
+
+Route::get('/search', [App\Http\Controllers\PostsController::class, 'search']);
 
 Route::get('/p/{post}', [App\Http\Controllers\PostsController::class, 'show']);
 

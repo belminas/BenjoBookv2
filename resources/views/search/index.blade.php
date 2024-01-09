@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-  @foreach($posts as $post)
+@foreach($posts as $post)
 
   <div class="row">
     <div class="col-6 offset-3 pt-3 pb-3">
@@ -26,11 +25,4 @@
 
   @endforeach
 
-  <div class="row">
-    <div class="col-12 d-flex justify-content-center">
-        {{$posts->links()}}
-    </div>
-  </div>
-
-</div>
 @endsection

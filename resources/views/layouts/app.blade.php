@@ -12,6 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -23,6 +24,21 @@
                    <div> <img src="/svg/benjobook.svg" style="height: 23px; border-right: 1px solid #333" class="pe-3"> </div>
                    <div class="ps-3">BenjoBook</div>
                 </a>
+                @guest
+                @if (Route::has('register') || Route::has('login'))
+                @endif
+                @else
+                <a class="ps-5" href="/profile/{{Auth::user()->id}}"><img src="{{Auth::user()->profile->profileImage()}}" class="w-100 rounded-circle" alt="" style="max-width:50pX;"></a>
+                @endguest
+
+                <div class="ps-5">
+                <form action="/search" method="get" class="d-flex">
+                    <input type="search" name="query" class="form-control" placeholder="Search for Post">
+                    <span class="pe-4"></span>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                </div>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -48,6 +64,7 @@
                                 </li>
                             @endif
                         @else
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
